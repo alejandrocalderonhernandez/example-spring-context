@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="com.debuggeandoideas"/>
+
+    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
+
+    <bean id="mind" class="com.debuggeandoideas.models.MindStone" scope="prototype"/>
+    <bean id="power" class="com.debuggeandoideas.models.PowerStone" scope="prototype"/>
+    <bean id="reality" class="com.debuggeandoideas.models.RealityStone" scope="prototype"/>
+    <bean id="time" class="com.debuggeandoideas.models.TimeStone" scope="prototype"/>
+    <bean id="soul" class="com.debuggeandoideas.models.SoulStone" scope="prototype"/>
+    <bean id="space" class="com.debuggeandoideas.models.SpaceStone" scope="prototype"/>
+
+    <bean id="gauntlet"
+              class="com.debuggeandoideas.services.GauntletServiceImpl"
+              autowire="constructor"
+              destroy-method="getSpace"
+              init-method="getTime"/>
+
+
+</beans>
